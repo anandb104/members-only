@@ -11,10 +11,8 @@ const singupvalidator=[
     .withMessage("Please fill the Last name"),
 
     body("username")
-    .trim()
-    .isEmail()
-    .withMessage("Please fill a valid email id"),
-
+    .trim(),
+    
     body("password")
     .trim()
     .notEmpty()

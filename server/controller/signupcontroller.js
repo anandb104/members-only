@@ -14,6 +14,12 @@ async function signupcontroller(req,res){
     let lastname=data.lastname;
     let username=data.username;
     let password=data.password;
+    let result=await query.checkusernamedb(username);
+    if(result.rows.length()>0){
+    res.send(400).json({
+        message:"Username Already Exists"
+    })
+    }
     let hashedpassword=await bcrypt.hash(password,10);
     await query.signupdb(firstname,lastname,username,hashedpassword);
     res.status(201).json({
