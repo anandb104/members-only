@@ -42,5 +42,6 @@ async function deletemessage(res){
 }
 module.exports={
     createmessage,
-    viewallmessage
+    viewallmessage,
+    deletemessage
 }
