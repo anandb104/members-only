@@ -22,7 +22,7 @@ function Main(){
   const router=createBrowserRouter([
     {
       path:"/",
-    element:<App user={user}/>,
+    element:<App user={user} setuser={setuser}/>,
     children:[
       {path:"signup",element:<Signup/>},
       {path:"login",element:<Login setuser={setuser}/>},
