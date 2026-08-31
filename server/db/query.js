@@ -12,7 +12,7 @@ async function createmessagedb(title,text,user_id){
   await pool.query("INSERT INTO message (title,text,user_id) VALUES ($1,$2,$3)",[title,text,user_id]);
 }
 async function viewallmessagedb(){
- return await pool.query("SELECT title,text,timestamp,user_id from message");
+ return await pool.query("SELECT id,title,text,timestamp,user_id from message");
 }
 async function updatememberdb(id){
    await pool.query("UPDATE users SET is_member=true WHERE id=($1)",[id]);

@@ -11,7 +11,7 @@ message:"message created successfully"
     }
     catch(error){
 res.send(400).json({
-    message:error
+    message:error.message
 })
     }
 }
@@ -25,7 +25,7 @@ async function viewallmessage(res){
     }
     catch(error){
      res.status(400).json({
-        error:error
+        error:error.message
      })
     }
 }
