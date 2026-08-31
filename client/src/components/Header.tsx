@@ -2,13 +2,11 @@ import { Button } from "@/components/ui/button"
 import {Link} from "react-router"
 import type {usertype} from "../types/usertype"
 import { GalleryVerticalEnd } from "lucide-react"
-import { useNavigate } from "react-router"
 type headerprops={
   user:usertype|null,
   setuser:React.Dispatch<React.SetStateAction<usertype>>,
 }
 export default function Header({user,setuser}:headerprops){
-  const navigate=useNavigate();
   let status="Guest";
  if(user){
 if(user.is_admin){
@@ -36,7 +34,8 @@ async function logout(){
       <Link to="/">The Inner Circle</Link></div>
       <div className="flex gap-10 items-center">
         <div>Status:{status}</div>
-        {user?(<div className="flex justify-center items-center gap-5">{user.username}
+        {user?(<div className="flex justify-center items-center gap-5">@{user.username}
+          {!user.is_member && <Link to="join"> <Button className="w-25 h-12">Join Circle</Button></Link>}
         <Button onClick={logout} className="w-20 h-12">Log Out</Button>
         </div>
       ):(
