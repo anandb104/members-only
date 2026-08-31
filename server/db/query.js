@@ -17,11 +17,15 @@ async function viewallmessagedb(){
 async function updatememberdb(id){
    await pool.query("UPDATE users SET is_member=true WHERE id=($1)",[id]);
  }
+ async function deletemessagedb(id){
+  await pool.query("DELETE FROM message WHERE id=($1)",[id]);
+}
 module.exports={
     signupdb,
     checkusernamedb,
     finduserdb,
     createmessagedb,
     viewallmessagedb,
-    updatememberdb
+    updatememberdb,
+    deletemessagedb
 }

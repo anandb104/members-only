@@ -29,6 +29,17 @@ async function viewallmessage(res){
      })
     }
 }
+async function deletemessage(res){
+    let id=req.params;
+    try{
+     await query.deletemessagedb(id);
+    }
+    catch(error){
+     res.status(400).json({
+        error:error.message
+     })
+    }
+}
 module.exports={
     createmessage,
     viewallmessage
