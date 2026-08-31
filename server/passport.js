@@ -27,12 +27,9 @@ passport.use(
         })
 );
 passport.serializeUser((user,done)=>{
-    console.log("SERIALIZE:", user.id);
    return done(null,user.id);
 });
 passport.deserializeUser(async(id,done)=>{
-    console.log("DESERIALIZE:", id);
     let data=await query.finduserdb(id);
-    console.log("USER FROM DB:", data.rows[0]);
         return done(null,data.rows[0]);
 });

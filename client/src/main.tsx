@@ -25,7 +25,7 @@ function Main(){
     element:<App user={user}/>,
     children:[
       {path:"signup",element:<Signup/>},
-      {path:"login",element:<Login/>},
+      {path:"login",element:<Login setuser={setuser}/>},
       {path:"/",element:<Message/>},
     ]
   },

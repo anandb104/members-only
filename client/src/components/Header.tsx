@@ -4,12 +4,12 @@ import type {usertype} from "../types/usertype"
 import { GalleryVerticalEnd } from "lucide-react"
 
 type headerprops={
-  user:usertype
+  user:usertype|null
 }
 export default function Header({user}:headerprops){
   let status="Guest";
  if(user){
- if(user.is_admin){
+if(user.is_admin){
  status="Admin"
  }
  else if(user.is_member){
@@ -22,8 +22,13 @@ export default function Header({user}:headerprops){
       <Link to="/">The Inner Circle</Link></div>
       <div className="flex gap-10 items-center">
         <div>Status:{status}</div>
+        {user?(<div>{user.username}</div>):(
+          <>
      <Link to="signup"> <Button className="w-20 h-12">Sign Up</Button></Link>
      <Link to="login"> <Button className="w-20 h-12">Log In</Button></Link>
+     </>
+        )
+        }
       </div>
      </div>
     );
