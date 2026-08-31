@@ -30,7 +30,10 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
-app.use(cors());
+app.use(cors({
+    origin:process.env.CLIENT_URL,
+    credentials: true
+}));
 app.use("/signup",signuprouter);
 app.use("/login",loginrouter);
 app.use("/logout",logoutrouter);

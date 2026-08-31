@@ -8,18 +8,23 @@ import Message from "./components/Message.tsx";
 import type { usertype } from './types/usertype.ts';
 import { createBrowserRouter,RouterProvider } from 'react-router';
 function Main(){
-  // let [user,setuser]=useState<usertype|null>(null);
-  // useEffect(()=>{
-  //   async function getuser(){
-  //    let response=fetch("http://localhost:3000/auth/me")
-  //   }
-  // })
+  const [user,setuser]=useState<usertype|null>(null);
+  useEffect(()=>{
+    async function getuser(){
+     const response=await fetch(`${import.meta.env.VITE_URL}/auth/me`,{
+      credentials:"include"
+     })
+     const data=await response.json();
+     setuser(data.user);
+    }
+    getuser();
+  },[])
   const router=createBrowserRouter([
     {
       path:"/",
-    element:<App/>,
+    element:<App user={user}/>,
     children:[
-      {path:"signup",element:<Signup />},
+      {path:"signup",element:<Signup/>},
       {path:"login",element:<Login/>},
       {path:"/",element:<Message/>},
     ]

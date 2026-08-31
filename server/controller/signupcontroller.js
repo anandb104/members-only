@@ -15,8 +15,8 @@ async function signupcontroller(req,res){
     let username=data.username;
     let password=data.password;
     let result=await query.checkusernamedb(username);
-    if(result.rows.length()>0){
-    res.send(400).json({
+    if(result.rows.length>0){
+    return res.status(400).json({
         message:"Username Already Exists"
     })
     }

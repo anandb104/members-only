@@ -1,5 +1,5 @@
 function requireadmin(req,res){
-    if(!req.isAuthenticate){
+    if(!req.isAuthenticated()){
         return res.status(400).json({
         message:"You need to log in"
         })

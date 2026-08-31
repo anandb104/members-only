@@ -1,13 +1,16 @@
-import { useState } from 'react'
 import './App.css'
 import{Outlet} from "react-router";
-import Header from "./components/Header.tsx"
+import Header from "./components/Header.tsx";
 import Footer from "./components/Footer.tsx";
-function App() {
+import type { usertype } from './types/usertype.ts';
+type appprops={
+  user:usertype
+}
+function App({user}:appprops) {
   return (
   <div className='flex flex-col flex-1 h-screen'>
-    <Header/>
-    <div className='flex flex-1'>
+    <Header user={user}/>
+    <div className='flex flex-1 h-full w-full overflow-y-scroll font-["Lobster_Two"]'>
     <Outlet/>
     </div>
     <Footer/>
