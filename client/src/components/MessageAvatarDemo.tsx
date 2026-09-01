@@ -60,6 +60,16 @@ import type { messagetype } from "@/types/usertype"
   }
     return (
       <div className="flex">
+        <div className="absolute top-30 left-10 ">
+        <h1 className="text-3xl">Welcome to Members Only
+        A private space for members to share thoughts and connect with others.<br></br>
+Join the community and become part of the conversation.<br></br>
+Create an account to get started and unlock member-only features.<br></br>
+Share your ideas, discover new conversations, and see what others have to say.<br></br>
+Your community, your conversations — Members Only.</h1>
+        </div>
+        <h1 className="absolute top-30 left-290 text-3xl">Messages</h1>
+        <div className="absolute top-45 left-290">
       {message.map((item)=>{
         return (
          <Message key={item.id}>
@@ -73,22 +83,24 @@ import type { messagetype } from "@/types/usertype"
          {user?.is_member && (
           <>
           <MessageHeader>{item.username}</MessageHeader>
+          <Bubble>
+            <BubbleContent>
+              {item.text}
+            </BubbleContent>
+          </Bubble>
           <MessageFooter>
           {new Date(item.timestamp).toLocaleString()}
         </MessageFooter>
         </>
          )
          }
-        <Bubble>
-            <BubbleContent>
-              {item.text}
-            </BubbleContent>
-          </Bubble>
+       
         </MessageContent>
          </Message>
         )
       })}
-      <div>
+      </div>
+      <div className="absolute top-80 left-10">
       {user?.is_member && <>
         <Field orientation="horizontal">
       <Input type="text" placeholder="Enter your message" name="text" value={newmessage} onChange={handlechange} />
