@@ -5,7 +5,7 @@ import Footer from "./components/Footer.tsx";
 import type { usertype } from './types/usertype.ts';
 type appprops={
   user:usertype|null,
-  setuser:React.Dispatch<React.SetStateAction<usertype>>
+  setuser:React.Dispatch<React.SetStateAction<usertype|null>>
 }
 function App({user,setuser}:appprops) {
   return (
