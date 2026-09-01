@@ -75,7 +75,7 @@ Your community, your conversations — Members Only.</h1>
          <Message key={item.id}>
          <MessageAvatar>
          <Avatar>
-         <AvatarImage src="https://github.com/shadcn.png" alt="avatar"/>
+         <AvatarImage src={`https://api.dicebear.com/9.x/avataaars/svg?seed=user${item.id} % 10`} alt="avatar"/>
          <AvatarFallback>U</AvatarFallback>
          </Avatar>
          </MessageAvatar>
