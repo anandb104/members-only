@@ -67,7 +67,7 @@ members-only/
 │   └── package.json
 │
 └── README.md
-
+```
 The deployment of the project can be found on https://members-only-theta-three.vercel.app/
 
 ![Screenshot 1 of the project](./client/public/members-only-sc1.png)
