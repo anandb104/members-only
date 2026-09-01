@@ -69,7 +69,7 @@ Share your ideas, discover new conversations, and see what others have to say.<b
 Your community, your conversations — Members Only.</h1>
         </div>
         <h1 className="absolute top-30 left-290 text-3xl">Messages</h1>
-        <div className="absolute top-45 left-290">
+        <div className="absolute top-45 left-290 flex flex-col gap-5">
       {message.map((item)=>{
         return (
          <Message key={item.id}>
@@ -83,11 +83,16 @@ Your community, your conversations — Members Only.</h1>
          {user?.is_member && (
           <>
           <MessageHeader>{item.username}</MessageHeader>
+          </>
+        )
+      }
           <Bubble>
             <BubbleContent>
               {item.text}
             </BubbleContent>
           </Bubble>
+          {user?.is_member && (
+             <>
           <MessageFooter>
           {new Date(item.timestamp).toLocaleString()}
         </MessageFooter>
@@ -114,10 +119,10 @@ Your community, your conversations — Members Only.</h1>
       <Input
         id="input-demo-disabled"
         type="text"
-        placeholder="Login to write a message"
+        placeholder="Become a Member to write a message"
         disabled
       />
-      <FieldDescription>This field is currently disabled.</FieldDescription>
+      <FieldDescription>This field is currently disabled.Become a Member to enable this</FieldDescription>
     </Field>
       </>
       }
