@@ -1,5 +1,6 @@
 import { GalleryVerticalEnd } from "lucide-react"
 import Joinform from "../components/Joinform.tsx"
+import type{usertype} from "../types/usertype"
 type joinprop={
     setuser: React.Dispatch<React.SetStateAction<usertype | null>>
  }

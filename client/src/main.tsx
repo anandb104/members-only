@@ -4,7 +4,7 @@ import './index.css'
 import App from './App.tsx'
 import Signup from "./components/Signup.tsx";
 import Login from "./components/Login.tsx";
-import Message from "./components/Message.tsx";
+import MessageAvatarDemo from "./components/MessageAvatarDemo.tsx";
 import Join from "./components/Join.tsx";
 import type { usertype } from './types/usertype.ts';
 import { createBrowserRouter,RouterProvider } from 'react-router';
@@ -27,7 +27,7 @@ function Main(){
     children:[
       {path:"signup",element:<Signup/>},
       {path:"login",element:<Login setuser={setuser}/>},
-      {path:"/",element:<Message/>},
+      {path:"/",element:<MessageAvatarDemo user={user}/>},
       {path:"join",element:<Join setuser={setuser}/>},
     ]
   },

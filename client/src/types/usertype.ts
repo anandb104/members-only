@@ -8,8 +8,7 @@ export type usertype={
 }
 export type messagetype={
     id:number,
-    title:string,
     text:string,
     timestamp:string,
-    userid:number
+    username:string
 }

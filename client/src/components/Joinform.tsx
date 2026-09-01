@@ -13,6 +13,7 @@ import {
 import { Input } from "@/components/ui/input"
 import { useState } from "react"
 import { useNavigate } from "react-router"
+import type{usertype} from "../types/usertype"
 type joinformprops=
   React.ComponentProps<"div"> & {setuser: React.Dispatch<React.SetStateAction<usertype | null>>;};
 export default function Joinform({

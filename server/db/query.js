@@ -8,11 +8,11 @@ return await pool.query(`SELECT * FROM users WHERE username=($1)`,[username])
 async function finduserdb(id){
   return  await pool.query(`SELECT * FROM users WHERE id=($1)`,[id])
 }
-async function createmessagedb(title,text,user_id){
-  await pool.query("INSERT INTO message (title,text,user_id) VALUES ($1,$2,$3)",[title,text,user_id]);
+async function createmessagedb(text,user_id){
+  return await pool.query("INSERT INTO message (text,user_id) VALUES ($1,$2) RETURNING *",[text,user_id]);
 }
 async function viewallmessagedb(){
- return await pool.query("SELECT id,title,text,timestamp,user_id from message");
+ return await pool.query("SELECT message.id,message.text,message.timestamp,users.username as username from message join users on message.user_id=users.id");
 }
 async function updatememberdb(id){
    await pool.query("UPDATE users SET is_member=true WHERE id=($1)",[id]);

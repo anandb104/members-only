@@ -1,22 +1,21 @@
 let query=require("../db/query");
 async function createmessage(req,res){
     try{
-let title=req.body.title;
 let text=req.body.text;
-let userid=req.body.user.id;
-await query.createmessagedb(title,text,userid);
+let result=await query.createmessagedb(text,req.user.id);
 res.status(200).json({
-message:"message created successfully"
-})
+messages:result.rows[0]
+});
     }
     catch(error){
-res.send(400).json({
-    message:error.message
+        console.log(error);
+res.status(400).json({
+    error:error.message
 })
     }
 }
 
-async function viewallmessage(res){
+async function viewallmessage(req,res){
     try{
      let result=await query.viewallmessagedb();
      res.status(200).json({
