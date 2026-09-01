@@ -4,7 +4,7 @@ import type {usertype} from "../types/usertype"
 import { GalleryVerticalEnd } from "lucide-react"
 type headerprops={
   user:usertype|null,
-  setuser:React.Dispatch<React.SetStateAction<usertype>>,
+  setuser:React.Dispatch<React.SetStateAction<usertype| null>>,
 }
 export default function Header({user,setuser}:headerprops){
   let status="Guest";
